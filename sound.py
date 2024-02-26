@@ -1,13 +1,6 @@
-import time
+import pygame
 
+pygame.mixer.init()
+p = pygame.mixer.Sound('t_time.mp3')
 
-now = time
-
-H = now.localtime().tm_hour
-M = now.localtime().tm_min
-
-while True:
-	
-	if M == 45:
-		
-
+p.play()
