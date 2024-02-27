@@ -1,3 +1,3 @@
 import playsound
 
-playsound.playsound("sample.mp3")
+playsound.playsound("t_time.mp3")
