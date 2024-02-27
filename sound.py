@@ -1,6 +1,3 @@
-import pygame
+import playsound
 
-pygame.mixer.init()
-p = pygame.mixer.Sound('t_time.mp3')
-
-p.play()
+playsound.playsound("sample.mp3")
