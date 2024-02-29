@@ -17,3 +17,4 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect(("pwnbit.kr", 443))
 a = sock.getsockname()[0]
 discord_send_message(a)
+
