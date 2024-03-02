@@ -25,35 +25,61 @@ while True:
 	time.sleep(1)
 	print(time.localtime().tm_hour)
 	print(time.localtime().tm_min)
-	
+	print(time.localtime().tm_wday)
 	
 	now_hour = time.localtime().tm_hour
 	now_min = time.localtime().tm_min
-				
-	if now_hour == 17 and now_min == 30:
-		bell_start.play()
-		time.sleep(61)
-	
-	elif now_hour == 19 and now_min == 00:
-		bell_start.play()
-		time.sleep(61)
-	
-	elif now_hour == 19 and now_min == 45:
-		bell_t_time.play()	
-		time.sleep(61)
-	
-	elif now_hour == 20 and now_min == 15:
-		bell_t_time.play()
-		time.sleep(61)
-	
-	elif now_hour == 20 and now_min == 30:
-		bell_start.play()
-		time.sleep(61)
+	now_today = time.localtime().tm_wday
+	if now_today == 5:
 		
-	elif now_hour == 21 and now_min == 15:
-		bell_t_time.play()
-		time.sleep(61)
+		print('s')
+		if now_hour == 10 and now_min == 00:
+			bell_start.play()
+			time.sleep(61)
+		
+		elif now_hour == 11 and now_min == 30:
+			bell_start.play()
+			time.sleep(61)
+		
+		elif now_hour == 12 and now_min == 15:
+			bell_t_time.play()	
+			time.sleep(61)
+		
+		elif now_hour == 13 and now_min == 00:
+			bell_start.play()
+			time.sleep(61)
+			
+		elif now_hour == 13 and now_min == 45:
+			bell_t_time.play()
+			time.sleep(61)
 
-	elif now_hour == 22 and now_min == 00:
-		bell_start.play()
-		time.sleep(61)
+		elif now_hour == 14 and now_min == 30:
+			bell_start.play()
+			time.sleep(61)
+		
+		
+	else:
+		
+		if now_hour == 17 and now_min == 30:
+			bell_start.play()
+			time.sleep(61)
+		
+		elif now_hour == 19 and now_min == 00:
+			bell_start.play()
+			time.sleep(61)
+		
+		elif now_hour == 19 and now_min == 45:
+			bell_t_time.play()	
+			time.sleep(61)
+		
+		elif now_hour == 20 and now_min == 30:
+			bell_start.play()
+			time.sleep(61)
+			
+		elif now_hour == 21 and now_min == 15:
+			bell_t_time.play()
+			time.sleep(61)
+
+		elif now_hour == 22 and now_min == 00:
+			bell_start.play()
+			time.sleep(61)
