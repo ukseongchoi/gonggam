@@ -22,22 +22,24 @@ sp.save('yes.mp3')
 #tts.play()
 
 
+def get_audio():
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print("지금 말씀하세요: ")
+        audio = r.listen(source)
+        said = " "
+
+        try:
+            said = r.recognize_google(audio, language="ko-KR")
+            print("말씀하신 내용입니다 : ", said)
+        except Exception as e:
+            print("Exception: " + str(e))
+    
+    return said
+
 while True:
 
-    try:
-        r = sr.Recognizer()
-        mic = sr.Microphone()
-        with mic as source:
-            r.adjust_for_ambient_noise(source)
-            audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
-
-        result = r.recognize_google(audio, language = "ko-KR")
-        stt += result
-        print(stt)
-        
-
-    except Exception as e:
-            print("Exception: " + str(e))
+    get_audio()
 
 
 
