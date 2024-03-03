@@ -2,10 +2,9 @@ import time
 import os
 
 from gtts import gTTS
+file_name = 'speech.mp3'
 
 import speech_recognition as sr
-
-audio = 'speech.mp3'
 
 import pygame
 pygame.mixer.init()
@@ -30,13 +29,13 @@ while True:
             text=result,
             slow=False
             )
-        sp.save(audio)
+        sp.save(file_name)
 
-        tts = pygame.mixer.Sound('speech.mp3')
+        tts = pygame.mixer.Sound(file_name)
         tts.play()
 
-        os.remove(audio)
-        
+        os.remove(file_name)
+
     except Exception as e:
             print("Exception: " + str(e))
 
