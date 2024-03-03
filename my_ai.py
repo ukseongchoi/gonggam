@@ -46,6 +46,8 @@ while True:
         tts = pygame.mixer.Sound('yes.mp3')
         tts.play()
 
+        break
+
 
 
 
