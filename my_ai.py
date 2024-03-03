@@ -21,21 +21,20 @@ while True:
         result = r.recognize_google(audio, language = "ko-KR")
         stt += result
         print(stt)
-        if '헤이공감' in stt.replace(' ',''):
-              
-            sp = gTTS(
-                lang='ko',
-                text='안녕하세요',
-                slow=False
-                )
-            sp.save(file_name)
+        
+        sp = gTTS(
+            lang='ko',
+            text='안녕하세요',
+            slow=False
+            )
+        sp.save(file_name)
 
-            
-            pygame.mixer.init()
-            tts = pygame.mixer.Sound(file_name)
-            tts.play()
+        
+        pygame.mixer.init()
+        tts = pygame.mixer.Sound(file_name)
+        tts.play()
 
-            os.remove(file_name)
+        os.remove(file_name)
 
     except Exception as e:
             print("Exception: " + str(e))
