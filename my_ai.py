@@ -48,4 +48,4 @@ def call_ai():
             print("Exception: " + str(e))
 
 
-
+call_ai()
