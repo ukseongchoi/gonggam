@@ -7,7 +7,6 @@ file_name = 'speech.mp3'
 import speech_recognition as sr
 
 import pygame
-pygame.mixer.init()
 
 stt = ''
 
@@ -32,10 +31,12 @@ while True:
             )
         sp.save(file_name)
 
+        
+        pygame.mixer.init()
         tts = pygame.mixer.Sound(file_name)
         tts.play()
 
-        #os.remove(file_name)
+        os.remove(file_name)
 
     except Exception as e:
             print("Exception: " + str(e))
