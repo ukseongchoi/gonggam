@@ -5,12 +5,13 @@ audio = 'speech.mp3'
 r = sr.Recognizer()
 mic = sr.Microphone()
 
-with mic as source:
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
+
 
 stt = ''
 while True:
+    with mic as source:
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
 
     try:
         result = r.recognize_google(audio, language = "ko-KR")
