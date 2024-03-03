@@ -26,7 +26,7 @@ def get_audio():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("지금 말씀하세요: ")
-        audio = r.listen(source)
+        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
         said = " "
 
         try:
