@@ -20,10 +20,13 @@ while True:
         print(stt)
     except speech_recognition.UnknownValueError:
         print("음성 인식 실패")
+        pass
     except speech_recognition.RequestError:
         print("HTTP Request Error")
+        pass
     except speech_recognition.WaitTimeoutError:
         print("WaitTimeout Error")
+        pass
 
 
 
