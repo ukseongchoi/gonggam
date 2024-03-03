@@ -2,13 +2,16 @@ from gtts import gTTS
 import speech_recognition as sr
 
 audio = 'speech.mp3'
-r = sr.Recognizer()
-mic = sr.Microphone()
+
 
 
 
 stt = ''
+
 while True:
+
+    r = sr.Recognizer()
+    mic = sr.Microphone()
     with mic as source:
         r.adjust_for_ambient_noise(source)
         audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
