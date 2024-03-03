@@ -26,7 +26,7 @@ def get_audio():
     r = sr.Recognizer()
     with sr.Microphone() as source:
         print("지금 말씀하세요: ")
-        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
+        audio = r.listen(source, timeout = 3, phrase_time_limit = 5)
         said = " "
 
         try:
@@ -37,9 +37,16 @@ def get_audio():
     
     return said
 
+stt = ''
 while True:
+    stt += get_audio()
 
-    print(get_audio())
+    if stt.replace(' ','').find('헤이공감') > -1:
+        pygame.mixer.init()
+        tts = pygame.mixer.Sound('yes.mp3')
+        tts.play()
+
+
 
 
 
