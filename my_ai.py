@@ -8,37 +8,43 @@ import speech_recognition as sr
 
 import pygame
 
-stt = ''
 
-while True:
 
-    try:
-        r = sr.Recognizer()
-        mic = sr.Microphone()
-        with mic as source:
-            r.adjust_for_ambient_noise(source)
-            audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
 
-    
-        result = r.recognize_google(audio, language = "ko-KR")
-        stt += result
-        print(stt)
+def call_ai():
+    stt = ''
 
-        sp = gTTS(
+    while True:
+        if stt.replace(" ",'') == "헤이공감":
+
+            sp = gTTS(
             lang='ko',
-            text=result,
+            text='네 안녕하세요',
             slow=False
             )
-        sp.save(file_name)
+            sp.save(file_name)
+
+            pygame.mixer.init()
+            tts = pygame.mixer.Sound(file_name)
+            tts.play()
+
+            os.remove(file_name)
+
+            break
+
+
+        try:
+            r = sr.Recognizer()
+            mic = sr.Microphone()
+            with mic as source:
+                r.adjust_for_ambient_noise(source)
+                audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
 
         
-        pygame.mixer.init()
-        tts = pygame.mixer.Sound(file_name)
-        tts.play()
+            result = r.recognize_google(audio, language = "ko-KR")
+            stt += result
 
-        os.remove(file_name)
-
-    except Exception as e:
+        except Exception as e:
             print("Exception: " + str(e))
 
 
