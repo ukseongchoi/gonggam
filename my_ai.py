@@ -12,14 +12,10 @@ pygame.mixer.init()
 stt = ''
 
 while True:
-
-    r = sr.Recognizer()
-    mic = sr.Microphone()
-    with mic as source:
-        r.adjust_for_ambient_noise(source)
-        audio = r.listen(source, timeout = 5, phrase_time_limit = 5)
-
     try:
+         
+        r = sr.Recognizen(source, timeout = 5, phrase_time_limit = 5)
+
         result = r.recognize_google(audio, language = "ko-KR")
         stt += result
         print(stt)
