@@ -1,9 +1,14 @@
+import time
+
 from gtts import gTTS
+
 import speech_recognition
 import speech_recognition as sr
 
 audio = 'speech.mp3'
 
+import pygame
+pygame.mixer.init()
 
 
 
@@ -19,8 +24,18 @@ while True:
 
     try:
         result = r.recognize_google(audio, language = "ko-KR")
-        stt = result
+        stt += result
         print(stt)
+
+        sp = gTTS(
+            lang='ko',
+            text=result,
+            slow=False
+            )
+        sp.save(audio)
+        tts = pygame.mixer.Sound('speech.mp3')
+        tts.play()
+
     except speech_recognition.UnknownValueError:
         print("음성 인식 실패")
         pass
@@ -33,9 +48,3 @@ while True:
 
 
 
-sp = gTTS(
-    lang='ko',
-    text="공감수학학원",
-    slow=False
-)
-sp.save(audio)
