@@ -39,7 +39,7 @@ def get_audio():
 
 while True:
 
-    get_audio()
+    print(get_audio())
 
 
 
