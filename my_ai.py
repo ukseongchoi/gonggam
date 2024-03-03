@@ -13,7 +13,7 @@ stt = ''
 
 while True:
 
-    r = sr.Recognizer()
+    r = sr.Recognizer()S
     mic = sr.Microphone()
     with mic as source:
         r.adjust_for_ambient_noise(source)
@@ -34,7 +34,7 @@ while True:
         tts = pygame.mixer.Sound(file_name)
         tts.play()
 
-        os.remove(file_name)
+        #os.remove(file_name)
 
     except Exception as e:
             print("Exception: " + str(e))
