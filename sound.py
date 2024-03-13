@@ -41,17 +41,17 @@ while True:
 			bell_start.play()
 			time.sleep(61)
 		
-		elif now_hour == 12 and now_min == 15:
-			bell_t_time.play()	
-			time.sleep(61)
+		#elif now_hour == 12 and now_min == 15:
+		#	bell_t_time.play()	
+		#	time.sleep(61)
 		
 		elif now_hour == 13 and now_min == 00:
 			bell_start.play()
 			time.sleep(61)
 			
-		elif now_hour == 13 and now_min == 45:
-			bell_t_time.play()
-			time.sleep(61)
+		#elif now_hour == 13 and now_min == 45:
+		#	bell_t_time.play()
+		#	time.sleep(61)
 
 		elif now_hour == 14 and now_min == 30:
 			bell_start.play()
@@ -68,17 +68,17 @@ while True:
 			bell_start.play()
 			time.sleep(61)
 		
-		elif now_hour == 19 and now_min == 45:
-			bell_t_time.play()	
-			time.sleep(61)
+		#elif now_hour == 19 and now_min == 45:
+		#	bell_t_time.play()	
+		#	time.sleep(61)
 		
 		elif now_hour == 20 and now_min == 30:
 			bell_start.play()
 			time.sleep(61)
 			
-		elif now_hour == 21 and now_min == 15:
-			bell_t_time.play()
-			time.sleep(61)
+		#elif now_hour == 21 and now_min == 15:
+		#	bell_t_time.play()
+		#	time.sleep(61)
 
 		elif now_hour == 22 and now_min == 00:
 			bell_start.play()
