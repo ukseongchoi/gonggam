@@ -1,8 +1,12 @@
+import openai
+
 from openai import OpenAI
 filename = 's_key.txt'
 file = open(filename, 'r')
 OPENAI_API_KEY = file.read()
+print(OPENAI_API_KEY)
 
+openai.api_key = OPENAI_API_KEY
 import time
 import os
 
@@ -12,7 +16,7 @@ import speech_recognition as sr
 
 import pygame
 
-https://www.sellbuymusic.com/@content/download/downloadFreeProc.asp?conType=S&conIdx=84
+
 def get_sound(text):
     
     sp = gTTS(
@@ -22,11 +26,14 @@ def get_sound(text):
     )
     sp.save('stt.mp3')
 
-def get_audio():
+def get_audio1():
+    
     r = sr.Recognizer()
+    
     with sr.Microphone() as source:
         print("지금 말씀하세요: ")
-        audio = r.listen(source, timeout = 10, phrase_time_limit = 3)
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
         said = " "
 
         try:
@@ -37,10 +44,28 @@ def get_audio():
     
     return said
 
+def get_audio2():
+    
+    r = sr.Recognizer()
+    
+    with sr.Microphone() as source:
+        print("지금 말씀하세요: ")
+        r.adjust_for_ambient_noise(source)
+        audio = r.listen(source)
+        said = " "
+
+        try:
+            said = r.recognize_google(audio, language="ko-KR")
+            print(said)
+        except Exception as e:
+            print("Exception: " + str(e))
+    
+    return said
+    
 stt = ''
 while True:
     print('시작')
-    stt += get_audio()
+    stt += get_audio1()
 
     if stt.replace(' ','').find('헤이공감') > -1:
         pygame.mixer.init()
@@ -53,7 +78,7 @@ while True:
         recognation_sound = pygame.mixer.Sound('Pling Sound.mp3')
         recognation_sound.play()
         
-        text = get_audio()
+        text = get_audio2()
         recognation_sound.play()
         
         completion = openai.chat.completions.create(
