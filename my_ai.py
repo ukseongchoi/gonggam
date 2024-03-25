@@ -1,3 +1,14 @@
+from openai import OpenAI
+
+
+
+filename = 's_key.txt'
+f = open(filename, 'r')
+OPENAI_API_KEY = f
+
+client = OpenAI(api_key = OPENAI_API_KEY)
+
+
 import time
 import os
 
